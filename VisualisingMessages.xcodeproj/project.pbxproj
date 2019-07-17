@@ -12,6 +12,7 @@
 		1A120A3022DF1E8500578644 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A120A2E22DF1E8500578644 /* Main.storyboard */; };
 		1A120A3222DF1E8700578644 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A120A3122DF1E8700578644 /* Assets.xcassets */; };
 		1A120A3522DF1E8700578644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A120A3322DF1E8700578644 /* LaunchScreen.storyboard */; };
+		96516EB4D4991953147A6CA3 /* Pods_VisualisingMessages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F7FEEECEA24319EB379114E /* Pods_VisualisingMessages.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		1A120A3122DF1E8700578644 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A120A3422DF1E8700578644 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A120A3622DF1E8700578644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64A20CD49F6EFCEDBADF1C90 /* Pods-VisualisingMessages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualisingMessages.release.xcconfig"; path = "Target Support Files/Pods-VisualisingMessages/Pods-VisualisingMessages.release.xcconfig"; sourceTree = "<group>"; };
+		8F7FEEECEA24319EB379114E /* Pods_VisualisingMessages.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VisualisingMessages.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9F0377D51F944F0A166202E /* Pods-VisualisingMessages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VisualisingMessages.debug.xcconfig"; path = "Target Support Files/Pods-VisualisingMessages/Pods-VisualisingMessages.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96516EB4D4991953147A6CA3 /* Pods_VisualisingMessages.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				1A120A2922DF1E8500578644 /* VisualisingMessages */,
 				1A120A2822DF1E8500578644 /* Products */,
+				CE6A9A75D0101FCD2B91D64A /* Pods */,
+				BF605E131662A53187A699C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +95,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		BF605E131662A53187A699C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F7FEEECEA24319EB379114E /* Pods_VisualisingMessages.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE6A9A75D0101FCD2B91D64A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9F0377D51F944F0A166202E /* Pods-VisualisingMessages.debug.xcconfig */,
+				64A20CD49F6EFCEDBADF1C90 /* Pods-VisualisingMessages.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A120A3922DF1E8700578644 /* Build configuration list for PBXNativeTarget "VisualisingMessages" */;
 			buildPhases = (
+				AC19C5BE5FFF43241C27AD0E /* [CP] Check Pods Manifest.lock */,
 				1A120A2322DF1E8500578644 /* Sources */,
 				1A120A2422DF1E8500578644 /* Frameworks */,
 				1A120A2522DF1E8500578644 /* Resources */,
+				2FE6E8EC1A2D8F577B9124D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -153,6 +180,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FE6E8EC1A2D8F577B9124D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VisualisingMessages/Pods-VisualisingMessages-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VisualisingMessages/Pods-VisualisingMessages-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VisualisingMessages/Pods-VisualisingMessages-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC19C5BE5FFF43241C27AD0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VisualisingMessages-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A120A2322DF1E8500578644 /* Sources */ = {
@@ -304,6 +373,7 @@
 		};
 		1A120A3A22DF1E8700578644 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9F0377D51F944F0A166202E /* Pods-VisualisingMessages.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -322,6 +392,7 @@
 		};
 		1A120A3B22DF1E8700578644 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64A20CD49F6EFCEDBADF1C90 /* Pods-VisualisingMessages.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
