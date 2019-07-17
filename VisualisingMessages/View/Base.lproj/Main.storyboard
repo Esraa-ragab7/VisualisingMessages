@@ -24,8 +24,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2Y-Y7-Z9c">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sheet1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRc-L9-rYM">
-                                                <rect key="frame" x="175" y="21" width="64.5" height="28.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRc-L9-rYM">
+                                                <rect key="frame" x="207" y="35" width="0.0" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="SinhalaSangamMN-Bold" family="Sinhala Sangam MN" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -38,18 +38,19 @@
                                             <constraint firstItem="mRc-L9-rYM" firstAttribute="centerY" secondItem="K2Y-Y7-Z9c" secondAttribute="centerY" id="eYv-Yl-yRH"/>
                                         </constraints>
                                     </view>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8iv-qp-uQU">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gf-OY-1Kh" customClass="GMSMapView">
                                         <rect key="frame" x="0.0" y="70" width="414" height="748"/>
-                                    </mapView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="8iv-qp-uQU" firstAttribute="leading" secondItem="Ezo-Ia-vRM" secondAttribute="leading" id="AYR-Z5-zxz"/>
-                                    <constraint firstItem="8iv-qp-uQU" firstAttribute="top" secondItem="K2Y-Y7-Z9c" secondAttribute="bottom" id="ElX-yN-bXq"/>
+                                    <constraint firstAttribute="bottom" secondItem="2gf-OY-1Kh" secondAttribute="bottom" id="I3c-6d-Kuo"/>
+                                    <constraint firstAttribute="trailing" secondItem="2gf-OY-1Kh" secondAttribute="trailing" id="Loq-hc-jUr"/>
+                                    <constraint firstItem="2gf-OY-1Kh" firstAttribute="top" secondItem="K2Y-Y7-Z9c" secondAttribute="bottom" id="Nif-f0-06M"/>
                                     <constraint firstItem="K2Y-Y7-Z9c" firstAttribute="leading" secondItem="Ezo-Ia-vRM" secondAttribute="leading" id="Rkh-tY-yoU"/>
+                                    <constraint firstItem="2gf-OY-1Kh" firstAttribute="leading" secondItem="Ezo-Ia-vRM" secondAttribute="leading" id="fcT-9l-d6s"/>
                                     <constraint firstItem="K2Y-Y7-Z9c" firstAttribute="top" secondItem="Ezo-Ia-vRM" secondAttribute="top" id="mPH-dZ-q3f"/>
-                                    <constraint firstAttribute="trailing" secondItem="8iv-qp-uQU" secondAttribute="trailing" id="nd7-8c-RGI"/>
-                                    <constraint firstAttribute="bottom" secondItem="8iv-qp-uQU" secondAttribute="bottom" id="oQR-0D-IVo"/>
                                     <constraint firstAttribute="trailing" secondItem="K2Y-Y7-Z9c" secondAttribute="trailing" id="zvW-6Y-WKQ"/>
                                 </constraints>
                             </view>
@@ -64,6 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="2gf-OY-1Kh" id="yjg-Ge-ubv"/>
                         <outlet property="titleLabel" destination="mRc-L9-rYM" id="4Dt-nX-CVk"/>
                     </connections>
                 </viewController>

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -61,6 +61,7 @@
 		1A120A2922DF1E8500578644 /* VisualisingMessages */ = {
 			isa = PBXGroup;
 			children = (
+				1A120A3F22DF588600578644 /* Helpers */,
 				1A120A3E22DF1FC400578644 /* Controller */,
 				1A120A3D22DF1FBD00578644 /* View */,
 				1A120A3C22DF1FB200578644 /* Modal */,
@@ -95,6 +96,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		1A120A3F22DF588600578644 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BF605E131662A53187A699C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +117,6 @@
 				C9F0377D51F944F0A166202E /* Pods-VisualisingMessages.debug.xcconfig */,
 				64A20CD49F6EFCEDBADF1C90 /* Pods-VisualisingMessages.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
