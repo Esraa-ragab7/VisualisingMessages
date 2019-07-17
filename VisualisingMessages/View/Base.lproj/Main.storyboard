@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="VisualisingMessages" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ezo-Ia-vRM">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2Y-Y7-Z9c">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sheet1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRc-L9-rYM">
+                                                <rect key="frame" x="175" y="21" width="64.5" height="28.5"/>
+                                                <fontDescription key="fontDescription" name="SinhalaSangamMN-Bold" family="Sinhala Sangam MN" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="0or-40-7tB"/>
+                                            <constraint firstItem="mRc-L9-rYM" firstAttribute="centerX" secondItem="K2Y-Y7-Z9c" secondAttribute="centerX" id="24N-dd-bMI"/>
+                                            <constraint firstItem="mRc-L9-rYM" firstAttribute="centerY" secondItem="K2Y-Y7-Z9c" secondAttribute="centerY" id="eYv-Yl-yRH"/>
+                                        </constraints>
+                                    </view>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8iv-qp-uQU">
+                                        <rect key="frame" x="0.0" y="70" width="414" height="748"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="8iv-qp-uQU" firstAttribute="leading" secondItem="Ezo-Ia-vRM" secondAttribute="leading" id="AYR-Z5-zxz"/>
+                                    <constraint firstItem="8iv-qp-uQU" firstAttribute="top" secondItem="K2Y-Y7-Z9c" secondAttribute="bottom" id="ElX-yN-bXq"/>
+                                    <constraint firstItem="K2Y-Y7-Z9c" firstAttribute="leading" secondItem="Ezo-Ia-vRM" secondAttribute="leading" id="Rkh-tY-yoU"/>
+                                    <constraint firstItem="K2Y-Y7-Z9c" firstAttribute="top" secondItem="Ezo-Ia-vRM" secondAttribute="top" id="mPH-dZ-q3f"/>
+                                    <constraint firstAttribute="trailing" secondItem="8iv-qp-uQU" secondAttribute="trailing" id="nd7-8c-RGI"/>
+                                    <constraint firstAttribute="bottom" secondItem="8iv-qp-uQU" secondAttribute="bottom" id="oQR-0D-IVo"/>
+                                    <constraint firstAttribute="trailing" secondItem="K2Y-Y7-Z9c" secondAttribute="trailing" id="zvW-6Y-WKQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ezo-Ia-vRM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Mxb-DM-AiP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ezo-Ia-vRM" secondAttribute="bottom" id="Pwy-tP-NdI"/>
+                            <constraint firstItem="Ezo-Ia-vRM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rlg-9m-b2o"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ezo-Ia-vRM" secondAttribute="trailing" id="mwE-EQ-Q13"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="mRc-L9-rYM" id="4Dt-nX-CVk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+</document>

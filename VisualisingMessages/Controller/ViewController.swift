@@ -9,7 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    // MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
