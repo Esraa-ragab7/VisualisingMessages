@@ -18,22 +18,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var filterLabel: UILabel!
     
     // MARK: - properites
-    let APIKey = "AIzaSyAbZ239oOQx0IO3-0T5XemXJ3SkMrfk5lA"
-    var displayedMessages : [[String:String]] = []
+    var displayedMessages : [Message] = []
     let pickerData = ["All", "Positive", "Neutral", "Negative"]
     let picker: UIPickerView = UIPickerView()
     
     // MARK: - ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         picker.showsSelectionIndicator = true
         picker.delegate = self
         picker.dataSource = self
         filterTextField.inputView = picker
         addToolBarTOPicker()
         
-        getDataFromJSON()
-        
+        getJSONData()
     }
     
 }
@@ -50,7 +49,7 @@ extension ViewController: UIPickerViewDataSource {
     
 }
 
-// Mark: -
+// Mark: - UIPickerViewDelegate
 extension ViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
@@ -80,9 +79,9 @@ extension ViewController {
     @objc func doneClick() {
         mapView.clear()
         let Selected = pickerData[picker.selectedRow(inComponent: 0)]
-        let filteredArr = Selected == "All" ? displayedMessages : displayedMessages.filter({ $0["sentiment"]! == Selected })
+        let filteredArr = Selected == "All" ? displayedMessages : displayedMessages.filter({ $0.sentiment == Selected })
         for message in filteredArr {
-            addMarker(message["message"]!, message["sentiment"]!, (Double(message["lat"]!))!, lng: (Double(message["lng"]!))!)
+            addMarker(message.message, message.sentiment, message.lat, lng: message.lng)
         }
         filterLabel.text = "\(Selected) ➣"
         filterTextField.resignFirstResponder()
@@ -93,6 +92,7 @@ extension ViewController {
     }
     
 }
+
 
 // MARK: - private functions
 extension ViewController {
@@ -106,7 +106,7 @@ extension ViewController {
         marker.icon = sentiment == "Negative" ? UIImage(named: "angry30") : sentiment == "Positive" ? UIImage(named: "happy30") : UIImage(named: "ne30")
     }
     
-    private func displayAlert(_ message: String, completion: ((UIAlertAction)->Void)? = nil ) {
+    private func displayAlert(_ title: String, _ message: String, completion: ((UIAlertAction)->Void)? = nil ) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default,handler:completion)
         alert.addAction(okAction)
@@ -114,66 +114,28 @@ extension ViewController {
         self.present(alert , animated:true)
     }
     
-    private func getMessageDetailsObject(_ fullMessage: String) {
-        var messageObject : [String:String] = [:]
-        var temp = ""
-        let arrOfWords = fullMessage.split(separator: " ").map { String($0) }
-        for i in 3 ..< arrOfWords.count - 2 {
-            temp = "\(temp) \(arrOfWords[i]) "
-        }
-        messageObject["sentiment"] = arrOfWords[arrOfWords.count - 1]
-        messageObject["messageid"] = arrOfWords[1]
-        messageObject["message"] = temp
-        
-        displayedMessages.append(messageObject)
-    }
-    
-}
-
-// MARK: - Get Data Functions
-extension ViewController {
-    
-    private func getDataFromJSON() {
-        do {
-            let data = try Data(contentsOf: URL(string: "https://spreadsheets.google.com/feeds/list/0Ai2EnLApq68edEVRNU0xdW9QX1BqQXhHRl9sWDNfQXc/od6/public/basic?alt=json")!, options: .mappedIfSafe)
-            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-            if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let feed = jsonResult["feed"] as? [String:Any] {
-                titleLabel.text = ((feed["title"] as! [String:Any])["$t"] as! String)
-                let allEntries = feed["entry"] as! [[String:Any]]
-                for i in 0 ..< allEntries.count {
-                    let message = (allEntries[i]["content"] as! [String:Any])["$t"] as! String
-                    getMessageDetailsObject(message)
-                }
-                displayedMessages = displayedMessages.sorted(by: { $0["sentiment"]! < $1["sentiment"]! })
-                getLatLng()
+    private func getJSONData() {
+        GetData.getDataFromJSON { (result) in
+            if result["NOT_OK"] as? Bool ?? false {
+                self.displayAlert("Error!", "No InternetConnection")
+                return
             }
-        } catch {
-            displayAlert("No InternetConnection")
-        }
-    }
-    
-    private func getLatLng() {
-        for index in 0 ..< displayedMessages.count {
-            var message = displayedMessages[index]
-            let escapedmessage = message["message"]!.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-            do {
-                let data = try Data(contentsOf: URL(string: "https://maps.googleapis.com/maps/api/geocode/json?address=\(escapedmessage!)&key=\(APIKey)")!, options: .mappedIfSafe)
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let status = jsonResult["status"] as? String {
-                    if status == "OK" {
-                        let results = jsonResult["results"] as? [[String:Any]]
-                        let location = ((results![0]["geometry"] as! [String: Any])["location"] as! [String:Double])
-                        displayedMessages[index]["lat"] = "\(location["lat"]!)"
-                        displayedMessages[index]["lng"] = "\(location["lng"]!)"
-                    } else if status == "OVER_QUERY_LIMIT" {
-                        displayedMessages[index]["lat"] = "\(Double.random(in: -50.0 ..< 160.0))"
-                        displayedMessages[index]["lng"] = "\(Double.random(in: -50.0 ..< 160.0))"
-                        addMarker(displayedMessages[index]["message"]!, displayedMessages[index]["sentiment"]!, (Double(displayedMessages[index]["lat"]!))!, lng: (Double(displayedMessages[index]["lng"]!))!)
+            
+            let res = Messages.init(fromDictionary: result)
+            self.titleLabel.text = res.title
+            self.displayedMessages = res.displayedMessages
+            
+            for message in self.displayedMessages {
+                GetData.getLatLng(message: message.message, completion: { (result) in
+                    if result["NOT_OK"] as? Bool ?? false {
+                        self.displayAlert("Error!", "No InternetConnection")
+                        return
                     }
-                }
-            } catch {
-                displayAlert("No InternetConnection")
+                    message.lat = result["lat"] as? Double
+                    message.lng = result["lng"] as? Double
+                })
             }
+            
         }
     }
     
