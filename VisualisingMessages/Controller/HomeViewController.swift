@@ -128,11 +128,12 @@ extension HomeViewController {
             for message in self.displayedMessages {
                 GetData.getLatLng(message: message.message, completion: { (result) in
                     if result["NOT_OK"] as? Bool ?? false {
-                        self.displayAlert("Error!", "No InternetConnection")
+                        self.addMarker(message.message, message.sentiment, message.lat, lng: message.lng)
                         return
                     }
                     message.lat = result["lat"] as? Double
                     message.lng = result["lng"] as? Double
+                    self.addMarker(message.message, message.sentiment, message.lat, lng: message.lng)
                 })
             }
             
