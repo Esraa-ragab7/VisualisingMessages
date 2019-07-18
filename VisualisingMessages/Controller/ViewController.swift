@@ -162,9 +162,9 @@ extension ViewController {
                 if let jsonResult = jsonResult as? Dictionary<String, AnyObject>, let status = jsonResult["status"] as? String {
                     if status == "OK" {
                         let results = jsonResult["results"] as? [[String:Any]]
-                        let location = ((results![0]["geometry"] as! [String: Any])["location"] as! [String:String])
-                        displayedMessages[index]["lat"] = location["lat"]
-                        displayedMessages[index]["lng"] = location["lng"]
+                        let location = ((results![0]["geometry"] as! [String: Any])["location"] as! [String:Double])
+                        displayedMessages[index]["lat"] = "\(location["lat"]!)"
+                        displayedMessages[index]["lng"] = "\(location["lng"]!)"
                     } else if status == "OVER_QUERY_LIMIT" {
                         displayedMessages[index]["lat"] = "\(Double.random(in: -50.0 ..< 160.0))"
                         displayedMessages[index]["lng"] = "\(Double.random(in: -50.0 ..< 160.0))"
