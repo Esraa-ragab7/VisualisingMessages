@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var filterTextField: UITextField!
+    @IBOutlet weak var filterLabel: UILabel!
     
     // MARK: - properites
     let APIKey = "AIzaSyAbZ239oOQx0IO3-0T5XemXJ3SkMrfk5lA"
@@ -83,7 +84,7 @@ extension ViewController {
         for message in filteredArr {
             addMarker(message["message"]!, message["sentiment"]!, (Double(message["lat"]!))!, lng: (Double(message["lng"]!))!)
         }
-        filterTextField.text = "\(Selected) ➣"
+        filterLabel.text = "\(Selected) ➣"
         filterTextField.resignFirstResponder()
     }
     

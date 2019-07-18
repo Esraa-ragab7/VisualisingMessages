@@ -37,9 +37,18 @@
                                                     <constraint firstAttribute="height" constant="2" id="F0p-pc-YlH"/>
                                                 </constraints>
                                             </view>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ALL ➣" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPC-76-Pvh">
-                                                <rect key="frame" x="327" y="20" width="57" height="30"/>
-                                                <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ALL ➣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3m-59-5UT">
+                                                <rect key="frame" x="331" y="20" width="53" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="WDw-mk-iFN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="18"/>
+                                                <color key="textColor" red="0.1333333333" green="0.36078431370000003" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NPC-76-Pvh">
+                                                <rect key="frame" x="331" y="20" width="53" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="LMq-lr-D73"/>
@@ -53,10 +62,15 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="0or-40-7tB"/>
                                             <constraint firstItem="mRc-L9-rYM" firstAttribute="centerX" secondItem="K2Y-Y7-Z9c" secondAttribute="centerX" id="24N-dd-bMI"/>
+                                            <constraint firstItem="NPC-76-Pvh" firstAttribute="trailing" secondItem="i3m-59-5UT" secondAttribute="trailing" id="3uJ-Pi-wQv"/>
+                                            <constraint firstItem="NPC-76-Pvh" firstAttribute="bottom" secondItem="i3m-59-5UT" secondAttribute="bottom" id="82Q-7N-DXI"/>
+                                            <constraint firstItem="i3m-59-5UT" firstAttribute="centerY" secondItem="K2Y-Y7-Z9c" secondAttribute="centerY" id="CK5-ck-NqK"/>
+                                            <constraint firstItem="NPC-76-Pvh" firstAttribute="leading" secondItem="i3m-59-5UT" secondAttribute="leading" id="GwG-2S-xru"/>
                                             <constraint firstAttribute="trailing" secondItem="Hlr-av-6yA" secondAttribute="trailing" id="KmK-ki-byM"/>
+                                            <constraint firstItem="NPC-76-Pvh" firstAttribute="top" secondItem="i3m-59-5UT" secondAttribute="top" id="MdK-mA-7Uz"/>
                                             <constraint firstItem="Hlr-av-6yA" firstAttribute="leading" secondItem="K2Y-Y7-Z9c" secondAttribute="leading" id="e1f-nN-jd7"/>
                                             <constraint firstItem="mRc-L9-rYM" firstAttribute="centerY" secondItem="K2Y-Y7-Z9c" secondAttribute="centerY" id="eYv-Yl-yRH"/>
-                                            <constraint firstAttribute="trailing" secondItem="NPC-76-Pvh" secondAttribute="trailing" constant="30" id="iZO-Zv-IKK"/>
+                                            <constraint firstAttribute="trailing" secondItem="i3m-59-5UT" secondAttribute="trailing" constant="30" id="eax-ua-egE"/>
                                             <constraint firstAttribute="bottom" secondItem="Hlr-av-6yA" secondAttribute="bottom" id="sEu-IO-lY8"/>
                                             <constraint firstItem="NPC-76-Pvh" firstAttribute="centerY" secondItem="K2Y-Y7-Z9c" secondAttribute="centerY" id="uen-CC-J9A"/>
                                         </constraints>
@@ -88,6 +102,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="filterLabel" destination="i3m-59-5UT" id="nea-vx-p2R"/>
                         <outlet property="filterTextField" destination="NPC-76-Pvh" id="EPR-dQ-pze"/>
                         <outlet property="mapView" destination="2gf-OY-1Kh" id="yjg-Ge-ubv"/>
                         <outlet property="titleLabel" destination="mRc-L9-rYM" id="4Dt-nX-CVk"/>
