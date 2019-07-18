@@ -2,7 +2,7 @@
 //  Message.swift
 //  VisualisingMessages
 //
-//  Created by Abdelrahman Abu Sharkh on 7/18/19.
+//  Created by Esraa Ragab on 7/18/19.
 //  Copyright © 2019 Esraa Ragab. All rights reserved.
 //
 
@@ -10,12 +10,14 @@ import Foundation
 
 class Message : NSObject {
     
+    // MARK: - properites
     var message: String!
     var sentiment: String!
     var messageid: String!
     var lat: Double!
     var lng: Double!
     
+    // MARK: - init()
     init(fromString str: String){
         var temp = ""
         let arrOfWords = str.split(separator: " ").map { String($0) }

@@ -2,7 +2,7 @@
 //  Messages.swift
 //  VisualisingMessages
 //
-//  Created by Abdelrahman Abu Sharkh on 7/18/19.
+//  Created by Esraa Ragab on 7/18/19.
 //  Copyright © 2019 Esraa Ragab. All rights reserved.
 //
 
@@ -10,9 +10,11 @@ import Foundation
 
 class Messages : NSObject {
     
+    // MARK: - properites
     var title: String!
     var displayedMessages: [Message]!
     
+    // MARK: - init()
     init(fromDictionary dictionary: [String:Any]){
         super.init()
         title = ((dictionary["title"] as! [String:Any])["$t"] as! String)

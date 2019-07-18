@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  VisualisingMessages
 //
-//  Created by Abdelrahman Abu Sharkh on 7/17/19.
+//  Created by Esraa Ragab on 7/17/19.
 //  Copyright © 2019 Esraa Ragab. All rights reserved.
 //
 

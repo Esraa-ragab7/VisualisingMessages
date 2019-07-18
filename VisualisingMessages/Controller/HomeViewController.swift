@@ -2,14 +2,14 @@
 //  ViewController.swift
 //  VisualisingMessages
 //
-//  Created by Abdelrahman Abu Sharkh on 7/17/19.
+//  Created by Esraa Ragab on 7/17/19.
 //  Copyright © 2019 Esraa Ragab. All rights reserved.
 //
 
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - UIPickerViewDataSource
-extension ViewController: UIPickerViewDataSource {
+extension HomeViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -50,14 +50,14 @@ extension ViewController: UIPickerViewDataSource {
 }
 
 // Mark: - UIPickerViewDelegate
-extension ViewController: UIPickerViewDelegate {
+extension HomeViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
 }
 
 // MARK: - toolBar
-extension ViewController {
+extension HomeViewController {
     
     private func addToolBarTOPicker() {
         let toolBar = UIToolbar()
@@ -95,7 +95,7 @@ extension ViewController {
 
 
 // MARK: - private functions
-extension ViewController {
+extension HomeViewController {
     
     private func addMarker(_ title: String, _ sentiment: String, _ lat: Double, lng: Double) {
         let marker = GMSMarker()
